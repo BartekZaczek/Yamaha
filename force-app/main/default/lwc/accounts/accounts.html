@@ -1,0 +1,11 @@
+<template>
+    <div class="slds-text-align_center" style="font-weight: bold;">New Contacts</div>
+    <template if:true={accts}>
+        <template for:each={acctData} for:item="acct">
+            <div key={acct.Id}>
+                <p>{acct.Name}</p>
+                <p>{acct.Phone}</p>
+            </div>
+        </template> 
+    </template>
+</template>
