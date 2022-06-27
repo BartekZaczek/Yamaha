@@ -28,4 +28,13 @@ public with sharing class FetchData {
             throw new AuraHandledException(e.getMessage());
         }
     }
+    @AuraEnabled(cacheable=true)
+    public static List<Opportunity> getOpportunities(){
+        try {
+            List<Opportunity> oppts = [SELECT Id, Name, Amount FROM Opportunity LIMIT 2];
+            return oppts;
+        } catch (Exception e) {
+            throw new AuraHandledException(e.getMessage());
+        }
+    }
 }
