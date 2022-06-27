@@ -1,0 +1,14 @@
+<template>
+    <div class="slds-card slds-p-around_small">
+    <div class="slds-text-align_center" style="font-weight: bold;">Leads</div>
+    <template if:true={leads}>
+        <template for:each={leadsData} for:item="lead">
+            <div key={lead.Id}>
+                <p>{lead.Name}</p>
+                <p>{lead.Status}</p>
+            </div>
+        </template> 
+    </template>
+</div>
+    
+</template>
