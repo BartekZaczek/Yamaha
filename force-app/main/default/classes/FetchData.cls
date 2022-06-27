@@ -10,4 +10,15 @@ public with sharing class FetchAccounts {
             throw new AuraHandledException(e.getMessage());
         }
     }
+    
+    @AuraEnabled(cacheable=true)
+    public static List<Contacts> getContacts(){
+        try {
+            List<Contacts> contacts = [SELECT Name, Phone FROM Contact LIMIT 2];
+            return contacts;
+            
+        } catch (Exception e) {
+            throw new AuraHandledException(e.getMessage());
+        }
+    }
 }
