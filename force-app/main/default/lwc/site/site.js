@@ -1,3 +1,5 @@
 import { LightningElement } from 'lwc';
-
-export default class Site extends LightningElement {test}
+import GREY from '@salesforce/resourceUrl/Grey';
+export default class Site extends LightningElement {
+    greyStaticResource = GREY;
+}
