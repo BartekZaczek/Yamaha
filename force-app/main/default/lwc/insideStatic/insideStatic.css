@@ -1,6 +1,6 @@
 .car-icon {
-    --sds-c-icon-color-foreground-default: white;
-    margin-top: 40%;
+    --sds-c-icon-color-foreground-default: red;
+    margin-top: 25%;
     margin-left: 35%;
     margin-right: 5px;
     

@@ -1,6 +1,7 @@
 import { LightningElement } from 'lwc';
 import GREY from '@salesforce/resourceUrl/Grey';
 import BLUE from '@salesforce/resourceUrl/Blue';
+
 export default class Site extends LightningElement {
 
     
@@ -11,5 +12,4 @@ export default class Site extends LightningElement {
     get backgroundBlue(){
         return `height:200px; width:auto; background-image:url(${BLUE})`;
     }
-
 }
