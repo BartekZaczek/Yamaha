@@ -3,7 +3,7 @@
         <div class="slds-text-align_center" style="font-weight: bold;">Contacts</div>
         <template if:true={cnts}>
             <template for:each={conData} for:item="cnts">
-                <div key={cnts.Id}>
+                <div key={cnts.Id} class="slds-m-top_x-small">
                     <p>{cnts.Name}</p>
                     <p>{cnts.Phone}</p>
                 </div>

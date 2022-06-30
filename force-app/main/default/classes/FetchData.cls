@@ -2,7 +2,7 @@ public with sharing class FetchData {
     @AuraEnabled(cacheable=true)
     public static List<Account> getAccounts(){
         try {
-            List<Account> accts = [SELECT Id, Name, Phone FROM Account LIMIT 2 ];
+            List<Account> accts = [SELECT Id, Name, Phone, Link__c FROM Account LIMIT 2 ];
             System.debug(accts);
             return accts;
         } catch (Exception e) {

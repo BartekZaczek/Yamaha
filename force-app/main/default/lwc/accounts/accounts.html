@@ -3,8 +3,13 @@
         <div class="slds-text-align_center" style="font-weight: bold;">Accounts</div>
         <template if:true={accts}>
             <template for:each={acctData} for:item="acct">
-                <div key={acct.Id}>
-                    <p>{acct.Name}</p>
+                <div key={acct.Id} class="slds-m-top_small">
+                    <a href={acct.Link__c}>
+                        <div >
+                        {acct.Name}
+                        <lightning-icon icon-name="utility:open" alternative-text="Open Account" title="Account" size="xx-small" class="open-icon slds-m-left_xx-small"></lightning-icon>
+                        </div>
+                    </a>
                     <p>{acct.Phone}</p>
                 </div>
             </template> 

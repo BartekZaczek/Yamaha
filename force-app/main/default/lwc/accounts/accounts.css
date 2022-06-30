@@ -1,0 +1,8 @@
+a{
+    color:rgb(150, 12, 12);
+}
+
+.open-icon {
+    --sds-c-icon-color-foreground-default: rgb(150, 12, 12);
+
+}

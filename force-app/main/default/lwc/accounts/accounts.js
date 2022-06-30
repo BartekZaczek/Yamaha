@@ -6,7 +6,6 @@ export default class Accounts extends LightningElement {
     @wire(getAccounts) accts({error, data}){
         if(data){
             this.acctData = data;
-            console.log(data)
         }else if(error){
             this.error = error;
         }
