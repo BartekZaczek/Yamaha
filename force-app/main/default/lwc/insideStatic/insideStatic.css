@@ -4,7 +4,7 @@
 }
 
 .red{
-    height: 150px;
+    height: 165px;
     width: 50%;
     margin-top: -5%;
     margin-left: 40%;
@@ -15,20 +15,19 @@
     position: relative;
 }
 
-.in{
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    text-align: center;
-    font-size: 18px;
-}
+
 
 .inn{
     position: absolute;
-    top: 50%;
-    width: 100%;
-    left: 45%;
+    top: 35%;
+    left: 50%;
 
+}
+
+.txt{
+    position: absolute;
+    top: 66%;
+    left: 50%;
 }
 
 .media{
