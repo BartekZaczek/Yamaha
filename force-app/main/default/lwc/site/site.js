@@ -6,10 +6,10 @@ export default class Site extends LightningElement {
 
     
     get backgroundGrey(){
-        return `height:auto; width:auto; background-image:url(${GREY})`;
+        return `height:220px; width:auto; background-image:url(${GREY})`;
     }
 
     get backgroundBlue(){
-        return `height:200px; width:auto; background-image:url(${BLUE})`;
+        return `height:220px; width:auto; background-image:url(${BLUE})`;
     }
 }
