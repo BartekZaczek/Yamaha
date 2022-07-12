@@ -1,8 +1,8 @@
-/*.car-icon{
+.car-icon{
     --sds-c-icon-color-foreground-default: rgb(139, 21, 3);
     
 }
-*/
+
 .red{
     height: 165px;
     width: 50%;
@@ -19,17 +19,17 @@
 
 .inn{
     position: absolute;
-    top: 35%;
+    top: 15%;
     left: 45%;
 
 }
 
 .txt{
     position: absolute;
-    top: 66%;
-    left: 40%;
+    top: 40%;
+    left: 45%;
 }
 
 .media{
-    width: 60%;
+    width: 40%;
 }

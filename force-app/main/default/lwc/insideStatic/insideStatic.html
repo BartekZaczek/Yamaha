@@ -1,11 +1,27 @@
 <template>
     <lightning-layout multiple-rows="true">
         <lightning-layout-item size="12" medium-device-size="6" padding="around-small">
-            <div class="slds-m-top_large">
-                <div class="slds-grid slds-grid_align-spread" style={backgroundGrey}>
+            <div class="slds-m-top_large" style={backgroundGrey}>
+                <div class="slds-grid slds-grid_align-spread container">
                     <img class="red" src={red}>
-                    <div class="">
-                        Left Bar 
+                    <div class="inn">
+                        <h1>
+                            <lightning-icon  icon-name="utility:travel_and_places" title="car" size="small" class="slds-m-right_xx-small car-icon"></lightning-icon>
+                            MY GARAGE
+                        </h1> 
+                    </div>
+                    <div class="txt">
+                        <h1>CONFIGURE THE</h1>
+                        <h1>YAMAHA OF YOUR</h1>
+                        <h1>DREAMS IN 3D</h1>
+                    </div>
+                </div>
+                <div class="slds-grid slds-grid_align-spread slds-m-top_xx-large">
+                    <div>
+                        <img class="media slds-m-left_x-large" src={imageGoogle} >
+                    </div>
+                    <div>
+                        <img class="media" src={imageAppStore}>
                     </div>
                 </div>
             </div>
