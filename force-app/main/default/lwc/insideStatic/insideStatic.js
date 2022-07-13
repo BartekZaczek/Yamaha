@@ -15,4 +15,5 @@ export default class InsideStatic extends LightningElement {
     get backgroundBlue(){
         return `height:250px; width:auto; background-image:url(${BLUE})`;
     }
+    
 }

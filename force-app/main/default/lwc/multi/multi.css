@@ -1,0 +1,47 @@
+.car-icon{
+    --sds-c-icon-color-foreground-default: rgb(139, 21, 3);
+    
+}
+a{
+    text-decoration:none;
+    color: white;
+}
+
+.red{
+    height: 165px;
+    width: 50%;
+    margin-top: -5%;
+    margin-left: 40%;
+ 
+    
+}
+.container{
+    position: relative;
+}
+
+.boldTxt{
+    font-weight: bold;
+}
+
+.inn{
+    position: absolute;
+    top: 15%;
+    left: 45%;
+}
+
+.raceTxt{
+    position: absolute;
+    top: 55%;
+    left: 5%;
+    color: white;
+}
+
+.txt{
+    position: absolute;
+    top: 40%;
+    left: 45%;
+}
+
+.media{
+    width: 40%;
+}
