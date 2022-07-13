@@ -1,14 +1,21 @@
 <template>
-    <div class="slds-card slds-p-around_small">
-        <div class="slds-text-align_center" style="font-weight: bold;">Opportunities</div>
-        <template if:true={oppts}>
-            <template for:each={opptData} for:item="oppt">
-                <div key={oppt.Id} class="slds-m-top_x-small">
-                    <p>{oppt.Name}</p>
-                    <p>{oppt.Amount}</p>
-                </div>
-            </template> 
-        </template>
+    <div class="slds-m-right_small">
+        <div class="slds-card slds-p-around_medium">
+            <div class="slds-text-align_center" style="font-weight: bold;">Opportunities</div>
+            <template if:true={oppts}>
+                <template for:each={opptData} for:item="oppt">
+                    <div key={oppt.Id} class="slds-m-top_x-small">
+                        <a href="">
+                            <div>
+                                {oppt.Name}
+                                <lightning-icon icon-name="utility:open" alternative-text="Open Account" title="Account" size="xx-small" class="open-icon slds-m-left_x-small"></lightning-icon>
+                                <br>
+                                {oppt.Amount}
+                            </div>
+                        </a>
+                    </div>
+                </template> 
+            </template>
+        </div>
     </div>
-    
 </template>

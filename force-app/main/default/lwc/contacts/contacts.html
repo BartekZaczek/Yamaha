@@ -1,13 +1,21 @@
 <template>
-    <div class="slds-card slds-p-around_small">
-        <div class="slds-text-align_center" style="font-weight: bold;">Contacts</div>
-        <template if:true={cnts}>
-            <template for:each={conData} for:item="cnts">
-                <div key={cnts.Id} class="slds-m-top_x-small">
-                    <p>{cnts.Name}</p>
-                    <p>{cnts.Phone}</p>
-                </div>
+    <div class="slds-m-right_small">
+        <div class="slds-card slds-p-around_medium">
+            <div class="slds-text-align_center" style="font-weight: bold;">Contacts</div>
+            <template if:true={cnts}>
+                <template for:each={conData} for:item="cnts">
+                    <div key={cnts.Id} class="slds-m-top_x-small">
+                        <a href="">
+                            <div>    
+                                {cnts.Name}
+                                <lightning-icon icon-name="utility:open" alternative-text="Open Account" title="Account" size="xx-small" class="open-icon slds-m-left_x-small"></lightning-icon>
+                                <br>
+                                Phone: {cnts.Phone}
+                            </div>
+                        </a>
+                    </div>
+                </template>
             </template>
-        </template>
+        </div>
     </div>
 </template>

@@ -2,6 +2,10 @@
     --sds-c-icon-color-foreground-default: rgb(139, 21, 3);
     
 }
+a{
+    text-decoration:none;
+    color: white;
+}
 
 .red{
     height: 165px;
@@ -15,13 +19,21 @@
     position: relative;
 }
 
-
+.boldTxt{
+    font-weight: bold;
+}
 
 .inn{
     position: absolute;
     top: 15%;
     left: 45%;
+}
 
+.raceTxt{
+    position: absolute;
+    top: 55%;
+    left: 5%;
+    color: white;
 }
 
 .txt{

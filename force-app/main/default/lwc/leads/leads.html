@@ -1,14 +1,21 @@
 <template>
-    <div class="slds-card slds-p-around_small">
-    <div class="slds-text-align_center" style="font-weight: bold;">Leads</div>
-    <template if:true={leads}>
-        <template for:each={leadsData} for:item="lead">
-            <div key={lead.Id} class="slds-m-top_x-small">
-                <p>{lead.Name}</p>
-                <p>{lead.Status}</p>
-            </div>
-        </template> 
-    </template>
-</div>
-    
+    <div class="slds-m-left_small">
+        <div class="slds-card slds-p-around_medium">
+            <div class="slds-text-align_center" style="font-weight: bold;">Leads</div>
+            <template if:true={leads}>
+                <template for:each={leadsData} for:item="lead">
+                    <div key={lead.Id} class="slds-m-top_x-small">
+                        <a href="">
+                            <div style="white-space: nowrap ">
+                                {lead.Name} 
+                                <lightning-icon icon-name="utility:open" alternative-text="Open Account" title="Account" size="xx-small" class="open-icon slds-m-left_x-small"></lightning-icon>
+                                <br>
+                                {lead.Status}
+                            </div>
+                        </a>
+                    </div>
+                </template> 
+            </template>
+        </div>
+    </div>
 </template>

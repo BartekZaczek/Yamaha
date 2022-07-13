@@ -1,37 +1,52 @@
 <template>
     <lightning-layout multiple-rows="true">
         <lightning-layout-item size="12" medium-device-size="6" padding="around-small">
-            <div class="slds-m-top_large" style={backgroundGrey}>
-                <div class="slds-grid slds-grid_align-spread container">
-                    <img class="red" src={red}>
-                    <div class="inn">
-                        <h1>
-                            <lightning-icon  icon-name="utility:travel_and_places" title="car" size="small" class="slds-m-right_xx-small car-icon"></lightning-icon>
-                            MY GARAGE
-                        </h1> 
+            <div class="slds-m-top_medium" style={backgroundGrey}>
+                <a href="https://www.google.com/">
+                    <div class="slds-grid slds-grid_align-spread container">
+                        <img class="red" src={red} >
+                        <div class="inn">
+                            <h1>
+                                <lightning-icon  icon-name="utility:travel_and_places" title="car" size="small" class="slds-m-right_xx-small car-icon"></lightning-icon>
+                                MY GARAGE
+                            </h1> 
+                        </div>
+                        <div class="txt">
+                            <h1>CONFIGURE THE</h1>
+                            <h1>YAMAHA OF YOUR</h1>
+                            <h1>DREAMS IN 3D</h1>
+                        </div>
                     </div>
-                    <div class="txt">
-                        <h1>CONFIGURE THE</h1>
-                        <h1>YAMAHA OF YOUR</h1>
-                        <h1>DREAMS IN 3D</h1>
+                    <div class="slds-grid slds-grid_align-spread slds-m-top_xx-large">
+                        <div>
+                            <img class="media slds-m-left_x-large" src={imageGoogle} >
+                        </div>
+                        <div>
+                            <img class="media" src={imageAppStore}>
+                        </div>
                     </div>
-                </div>
-                <div class="slds-grid slds-grid_align-spread slds-m-top_xx-large">
-                    <div>
-                        <img class="media slds-m-left_x-large" src={imageGoogle} >
-                    </div>
-                    <div>
-                        <img class="media" src={imageAppStore}>
-                    </div>
-                </div>
+                </a>
             </div>
         </lightning-layout-item>
+        
         <lightning-layout-item size="12" medium-device-size="6" padding="around-small">
-            <div class="slds-m-top_large">
-                <div class="slds-grid slds-grid_align-spread" style={backgroundGrey}>
-                    <img class="red" src={red}>
-                    <div class="">
-                        Right Side Bar 2
+            <div class="slds-m-top_small">
+                <div class="slds-grid slds-grid_align-spread container" style={backgroundBlue}>
+                    <div class="raceTxt ">
+                        <ul class="slds-list_horizontal slds-has-block-links boldTxt">
+                            <li class="slds-m-right_xx-small slds-text-heading_large">
+                              YAMAHA
+                            </li>
+                            <li class="slds-text-color_error slds-text-heading_large">
+                                RACING
+                            </li>
+                        </ul>
+                        <div class="slds-m-top_xx-small">
+                            Feel the wild power that 
+                        </div>
+                        <div class="slds-m-top_xx-small">
+                            drives star's racers
+                        </div> 
                     </div>
                 </div>
             </div>
