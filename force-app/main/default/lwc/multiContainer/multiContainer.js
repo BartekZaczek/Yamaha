@@ -13,6 +13,12 @@ export default class MultiContainer extends LightningElement {
     get backgroundGrey(){
         return `height:250px; width:auto; background-image:url(${GREY})`;
     }
+    get backgroundBlueShort(){
+        return `height:170px; width:auto; background-image:url(${BLUE})`;
+    }
+    get backgroundGreyShort(){
+        return `height:170px; width:auto; background-image:url(${GREY})`;
+    }
 
     blue = BLUE;
     red = RED;
