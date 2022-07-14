@@ -9,9 +9,9 @@ a{
 
 .red{
     height: 165px;
-    width: 50%;
+    width: 40%;
     margin-top: -5%;
-    margin-left: 40%;
+    margin-left: 20%;
  
     
 }
@@ -25,21 +25,16 @@ a{
 
 .inn{
     position: absolute;
-    top: 15%;
-    left: 45%;
+    top: 35%;
+    left: 50%;
 }
 
-.raceTxt{
-    position: absolute;
-    top: 55%;
-    left: 5%;
-    color: white;
-}
 
 .txt{
     position: absolute;
-    top: 40%;
-    left: 45%;
+    top: 55%;
+    left: 50%;
+    font-weight: bold;
 }
 
 .media{

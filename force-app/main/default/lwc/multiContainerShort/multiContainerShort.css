@@ -1,0 +1,14 @@
+.container{
+    position: relative;
+}
+
+.raceTxt{
+    position: absolute;
+    top: 55%;
+    left: 5%;
+    color: white;
+}
+
+.boldTxt{
+    font-weight: bold;
+}

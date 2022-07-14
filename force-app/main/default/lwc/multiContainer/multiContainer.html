@@ -1,10 +1,18 @@
 <template>
     <lightning-layout multiple-rows="true">
         <lightning-layout-item size="12" medium-device-size="6" padding="around-small">
-            <c-multi title="MY GARAGE" background={backgroundGrey} red={blue}></c-multi>
+            <c-multi title="MY RIDE" comm1="ENRICH" comm2="YOUR RIDING" comm3="EXPERIENCE" background={backgroundGrey} red={blue} imagegoogle={imageGoogle} imageappstore={imageAppStore}></c-multi>
         </lightning-layout-item>
         <lightning-layout-item size="12" medium-device-size="6" padding="around-small">
-            <c-multi title="MY GARAGE 2" comm1="CONFIGURE THE" comm2="YAMAHA OF YOUR" comm3="DREAMS IN 3D"  background={backgroundBlue} red={red} ></c-multi>
+            <c-multi title="MY GARAGE" comm1="CONFIGURE THE" comm2="YAMAHA OF YOUR" comm3="DREAMS IN 3D"  background={backgroundBlue} red={red} imagegoogle={imageGoogle} imageappstore={imageAppStore}></c-multi>
+        </lightning-layout-item>
+    </lightning-layout>
+    <lightning-layout multiple-rows="true">
+        <lightning-layout-item size="12" medium-device-size="6" padding="around-small">
+            <c-multi-container-short comm1="YAMAHA" comm2red="RACING" com3="Feel the wild power that" com4="drives star's racers" background={backgroundBlue}></c-multi-container-short>
+        </lightning-layout-item>
+        <lightning-layout-item size="12" medium-device-size="6" padding="around-small">
+            <c-multi-container-short comm1="EVENTS" comm2red="CALENDAR" com3="Check all aspects of Yamaha life," com4="from test rides to events" background={backgroundGrey}></c-multi-container-short>
         </lightning-layout-item>
     </lightning-layout>
 </template>

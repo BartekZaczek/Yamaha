@@ -2,6 +2,8 @@ import { LightningElement } from 'lwc';
 import BLUE from '@salesforce/resourceUrl/Blue';
 import GREY from '@salesforce/resourceUrl/Grey';
 import RED from '@salesforce/resourceUrl/red';
+import GOOGLEPLAY from '@salesforce/resourceUrl/googlePLay';
+import APPSTORE from '@salesforce/resourceUrl/appStore';
 
 export default class MultiContainer extends LightningElement {
     
@@ -13,6 +15,7 @@ export default class MultiContainer extends LightningElement {
     }
 
     blue = BLUE;
-
     red = RED;
+    imageGoogle = GOOGLEPLAY;
+    imageAppStore = APPSTORE;
 }

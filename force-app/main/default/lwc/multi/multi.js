@@ -9,4 +9,6 @@ export default class Multi extends LightningElement {
     @api comm1;
     @api comm2;
     @api comm3;
+    @api imageappstore;
+    @api imagegoogle;
 }
