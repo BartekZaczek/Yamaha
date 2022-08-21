@@ -1,0 +1,18 @@
+<template>
+    <lightning-layout class="slds-m-top_medium">
+        <lightning-layout-item>
+            <lightning-button label="Previous" 
+            icon-name="utility:chevronleft">
+            </lightning-button>
+        </lightning-layout-item>
+        <lightning-layout-item flexibility="grow" class="slds-align_absolute-center">
+            <p >Displaying {currentPage} of {totalPage} Page</p>
+        </lightning-layout-item>
+        <lightning-layout-item>
+            <lightning-button label="Next" 
+            icon-name="utility:chevronright"
+            icon-position="right">
+            </lightning-button>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>
