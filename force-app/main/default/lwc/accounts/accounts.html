@@ -3,7 +3,7 @@
         <div class="slds-card slds-p-around_medium">
             <div class="slds-text-align_center" style="font-weight: bold;">Accounts</div>
             <template if:true={accts}>
-                <template for:each={acctData} for:item="acct">
+                <template for:each={visibleAcct} for:item="acct">
                     <div key={acct.Id} class="slds-m-top_small">
                         <a href={acct.Link__c}>
                             <div>
@@ -16,7 +16,7 @@
                     </div>
                 </template> 
             </template>
-            <c-pagination></c-pagination>
+            <c-pagination records={acctData} onupdate={updateAccountHandler} record-size ="2"></c-pagination>
         </div>
     </div>
 </template>
