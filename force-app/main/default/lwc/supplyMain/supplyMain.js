@@ -1,36 +1,78 @@
 import getAcrylic from '@salesforce/apex/AcrylicController.getAcrylic';
-import { LightningElement, wire, track } from 'lwc';
-let i=0;
+import ID_FIELD from "@salesforce/schema/Acrylic__c.Id";
+import QUANTITY__C__FIELD from "@salesforce/schema/Acrylic__c.Quantity__c"
+import { updateRecord } from 'lightning/uiRecordApi';
+import { LightningElement, track, wire } from 'lwc';
 export default class SupplyMain extends LightningElement {
-    @track items = []; //this will hold key, value pair
-    @track value = ''; //initialize combo box value
-    @track chosenValue = '';
-    aData
+    @track optionsArray = []; 
+    @track value = '';
+    @track label = '';
+    @track addedQuantity = 0;
+    @track acrylicName = '';
+    
+   /* get options(){
+        return [ 
+            {label : 'new', value : 'new'},
+            {label : 'new', value : 'new'}
+        ];
+    }
+    handleChange(event){
+        this.value = event.detail.value;
+    }*/
 
-    @wire(getAcrylic) acrylics({error, data}){
-        if(data){
-            this.aData = data;
-            console.log(this.aData);
-            for(i=0; i<data.lenght;i++) {
-                this.items = data.map(items => ({ label: data[i].Name, value: data[i].Id }));
+    @wire(getAcrylic)
+    acrylics;
+    
+
+    get options(){
+        return this.optionsArray;
+    }
+
+    connectedCallback(){
+        getAcrylic()
+        .then( result=> {
+            let arr = [];
+            for( var i = 0; i < result.length; i++){
+                arr.push({ label : result[i].Name , value : result[i].Id })
             }
-            console.log(this.items);
-        }else if(error){
-            this.error = error;
+            this.optionsArray = arr;
+        })
+    }
+
+    handleChange(event){
+        this.value = event.detail.value;
+        if(this.template.querySelector("lightning-input") != null){
+            const btn = this.template.querySelector("lightning-button");
+            btn.disabled = false;
+            console.log(btn);
+        }else{
+            console.log('empty');
         }
+            
+        
     }
 
-    get acrylicOptions(){
-        return this.items;
-    }
+    handleClick(event){
+       this.addedQuantity = this.template.querySelector("lightning-input").value;
+       this.acrylicName = this.value;
+       console.log(this.addedQuantity);
+       console.log(this.acrylicName);
 
-    handleChange(event) {
-        const selectedOption = event.detail.value;
-        console.log('selected value=' + selectedOption);
-        this.chosenValue = selectedOption;
-    }
 
-    get selectedValue(){
-        return this.chosenValue;
+       const fields = {};
+
+       fields[ID_FIELD.fieldApiName] = this.value;
+       fields[QUANTITY__C__FIELD.fieldApiName] = this.addedQuantity;
+       
+       const recordInput = { fields: fields };
+
+       updateRecord(recordInput).then((record) => {
+        console.log(record);
+      });
+            
+        
     }
+        
+       
 }
+
