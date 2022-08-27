@@ -1,8 +1,8 @@
 <template>
-    <lightning-card title="Warehouse of acrylic">
+    <lightning-card title="Delivery of acrylic">
         <div class="slds-grid slds-gutters slds-p-around_small">
             <div class="slds-col">
-                <lightning-combobox style="width: 30%;"
+                <lightning-combobox style="width: 30%;" class="slds-align_absolute-center"
                     name="Acrylic"
                     label="Select acrylic plate:"
                     value={value}
@@ -10,11 +10,14 @@
                     options={options}
                     onchange={handleChange}>
                 </lightning-combobox>
-                <p class="slds-m-top_medium">Current quantity of plate: {value}</p>
+                <p class="slds-m-top_medium slds-align_absolute-center">Current quantity of plate: {quantityToShow}</p>
         </div>
         <div class="slds-col">
-            <lightning-input class="slds-m-bottom_small" type="number" onchange={validation} label="Write the number of acrylic plates included in the delivery:" placeholder="Enter..." style="width: 47%;" name="quantity"></lightning-input> 
-            <lightning-button label="Add" onclick={handleClick} disabled></lightning-button> 
+            
+            <lightning-input class="slds-m-bottom_small slds-align_absolute-center" type="number" onchange={validation} label="Write the number of acrylic plates included in the delivery:" placeholder="Enter..." style="width: 47%;" name="quantity"></lightning-input> 
+            <lightning-button class="slds-align_absolute-center" label="Add" onclick={handleClick} disabled></lightning-button> 
+        
+            
         </div>
     </div>
     </lightning-card>

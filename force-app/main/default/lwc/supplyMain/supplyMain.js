@@ -1,15 +1,17 @@
 import getAcrylic from '@salesforce/apex/AcrylicController.getAcrylic';
+import LightningAlert from 'lightning/alert';
 import ID_FIELD from "@salesforce/schema/Acrylic__c.Id";
 import QUANTITY__C__FIELD from "@salesforce/schema/Acrylic__c.Quantity__c"
 import { updateRecord } from 'lightning/uiRecordApi';
-import { LightningElement, track, wire } from 'lwc';
+import { LightningElement, track, wire, api } from 'lwc';
+
 export default class SupplyMain extends LightningElement {
     @track optionsArray = []; 
     @track value = '';
     @track label = '';
     @track quantity = 0;
     @track addedQuantity = 0;
-    
+    @api quantityToShow = 0;
 
     @wire(getAcrylic)
     acrylics;
@@ -37,6 +39,7 @@ export default class SupplyMain extends LightningElement {
         for(var i = 0; i<this.optionsArray.length; i++){
             if(this.value == this.optionsArray[i].value){
                 this.quantity = this.optionsArray[i].quantity;
+                this.quantityToShow = this.quantity
             }
         }  
     }
@@ -53,6 +56,15 @@ export default class SupplyMain extends LightningElement {
         
     }
 
+    async handleAlert() {
+        await LightningAlert.open({
+            message: 'Acrylic plates have been successfully added to the warehouse.',
+            theme: 'success', // more would be success, info, warning
+            label: 'Delivery confirmed!', // this is the header text
+        });
+        
+    }
+
     handleClick(){
         const fields = {};
         fields[ID_FIELD.fieldApiName] = this.value;
@@ -60,10 +72,13 @@ export default class SupplyMain extends LightningElement {
         const recordInput = { fields: fields };
         updateRecord(recordInput).then((record) => {
         console.log(record);
+        this.handleAlert();
+        this.quantityToShow = parseInt(this.addedQuantity) + parseInt(this.quantity);
       });
             
         
     }
+    
         
        
 }
