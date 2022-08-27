@@ -7,18 +7,9 @@ export default class SupplyMain extends LightningElement {
     @track optionsArray = []; 
     @track value = '';
     @track label = '';
+    @track quantity = 0;
     @track addedQuantity = 0;
-    @track acrylicName = '';
     
-   /* get options(){
-        return [ 
-            {label : 'new', value : 'new'},
-            {label : 'new', value : 'new'}
-        ];
-    }
-    handleChange(event){
-        this.value = event.detail.value;
-    }*/
 
     @wire(getAcrylic)
     acrylics;
@@ -33,7 +24,8 @@ export default class SupplyMain extends LightningElement {
         .then( result=> {
             let arr = [];
             for( var i = 0; i < result.length; i++){
-                arr.push({ label : result[i].Name , value : result[i].Id })
+                arr.push({ label : result[i].Name , value : result[i].Id, quantity : result[i].Quantity__c })
+                console.log(arr[i]);
             }
             this.optionsArray = arr;
         })
@@ -41,32 +33,32 @@ export default class SupplyMain extends LightningElement {
 
     handleChange(event){
         this.value = event.detail.value;
-        if(this.template.querySelector("lightning-input") != null){
-            const btn = this.template.querySelector("lightning-button");
+        this.validation();
+        for(var i = 0; i<this.optionsArray.length; i++){
+            if(this.value == this.optionsArray[i].value){
+                this.quantity = this.optionsArray[i].quantity;
+            }
+        }  
+    }
+
+    validation(){
+        this.addedQuantity = this.template.querySelector("lightning-input").value;
+        const btn = this.template.querySelector("lightning-button");
+        if(this.template.querySelector("lightning-combobox").value != '' && this.addedQuantity > 0 ){
             btn.disabled = false;
-            console.log(btn);
         }else{
+            btn.disabled = true;
             console.log('empty');
         }
-            
         
     }
 
-    handleClick(event){
-       this.addedQuantity = this.template.querySelector("lightning-input").value;
-       this.acrylicName = this.value;
-       console.log(this.addedQuantity);
-       console.log(this.acrylicName);
-
-
-       const fields = {};
-
-       fields[ID_FIELD.fieldApiName] = this.value;
-       fields[QUANTITY__C__FIELD.fieldApiName] = this.addedQuantity;
-       
-       const recordInput = { fields: fields };
-
-       updateRecord(recordInput).then((record) => {
+    handleClick(){
+        const fields = {};
+        fields[ID_FIELD.fieldApiName] = this.value;
+        fields[QUANTITY__C__FIELD.fieldApiName] = parseInt(this.addedQuantity) + parseInt(this.quantity);
+        const recordInput = { fields: fields };
+        updateRecord(recordInput).then((record) => {
         console.log(record);
       });
             

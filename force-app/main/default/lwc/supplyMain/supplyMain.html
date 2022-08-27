@@ -13,7 +13,7 @@
                 <p class="slds-m-top_medium">Current quantity of plate: {value}</p>
         </div>
         <div class="slds-col">
-            <lightning-input class="slds-m-bottom_small" type="number" label="Write the number of acrylic plates included in the delivery:" placeholder="Enter..." style="width: 47%;" name="quantity"></lightning-input> 
+            <lightning-input class="slds-m-bottom_small" type="number" onchange={validation} label="Write the number of acrylic plates included in the delivery:" placeholder="Enter..." style="width: 47%;" name="quantity"></lightning-input> 
             <lightning-button label="Add" onclick={handleClick} disabled></lightning-button> 
         </div>
     </div>
