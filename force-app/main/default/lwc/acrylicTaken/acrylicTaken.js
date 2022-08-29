@@ -5,6 +5,7 @@ import QUANTITY__C__FIELD from "@salesforce/schema/Acrylic__c.Quantity__c"
 import { updateRecord } from 'lightning/uiRecordApi';
 import { LightningElement, track } from 'lwc';
 
+
 export default class AcrylicTaken extends LightningElement {
 
     @track optionsArray = [];
@@ -42,10 +43,10 @@ export default class AcrylicTaken extends LightningElement {
     }
 
     validation(){
-        this.reducedQuantity = this.template.querySelector("lightning-input").value;
+        this.reducedQuantity = this.template.querySelector("[data-field='quantityToDelete']").value;
         const btn = this.template.querySelector("lightning-button");
         console.log(this.reducedQuantity);
-        if(this.template.querySelector("lightning-combobox").value != '' && this.reducedQuantity > 0 && this.quantity >= this.reducedQuantity ){
+        if(this.template.querySelector("[data-field='comboDelete']").value != '' && this.reducedQuantity > 0 && this.quantity >= this.reducedQuantity ){
             btn.disabled = false;
         }else{
             btn.disabled = true;
@@ -62,17 +63,23 @@ export default class AcrylicTaken extends LightningElement {
         
     }
 
+    
+
     handleClick(){
         const fields = {};
         
         fields[ID_FIELD.fieldApiName] = this.value;
         fields[QUANTITY__C__FIELD.fieldApiName] = parseInt(this.quantity) - parseInt(this.reducedQuantity);
         console.log('red:' + this.reducedQuantity + 'q:' + this.quantity);
+        this.quantity = parseInt(this.quantity) - parseInt(this.reducedQuantity);
         const recordInput = {fields: fields};
         updateRecord(recordInput).then((record) => {
             console.log(record);
             this.handleAlert();
-            this.template.querySelector("lightning-input").value = 0;
         })
+        setTimeout(function(){
+            window.location.reload()
+          },1500);
     }
+    
 }

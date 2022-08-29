@@ -44,9 +44,9 @@ export default class SupplyMain extends LightningElement {
     }
 
     validation(){
-        this.addedQuantity = this.template.querySelector("lightning-input").value;
+        this.addedQuantity = this.template.querySelector("[data-field='quantityToAdd']").value;
         const btn = this.template.querySelector("lightning-button");
-        if(this.template.querySelector("lightning-combobox").value != '' && this.addedQuantity > 0 ){
+        if(this.template.querySelector("[data-field='comboAdd']").value != '' && this.addedQuantity > 0 ){
             btn.disabled = false;
         }else{
             btn.disabled = true;
@@ -75,7 +75,9 @@ export default class SupplyMain extends LightningElement {
         this.handleAlert();
         this.quantityToShow = parseInt(this.addedQuantity) + parseInt(this.quantity);
       });
-            
+      setTimeout(function(){
+        window.location.reload()
+      },1500);
         
     }
     

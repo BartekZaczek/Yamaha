@@ -2,7 +2,7 @@
     <lightning-card title="Delivery of acrylic">
         <div class="slds-grid slds-gutters slds-p-around_small">
             <div class="slds-col">
-                <lightning-combobox style="width: 30%;" class="slds-align_absolute-center"
+                <lightning-combobox data-field="comboAdd" style="width: 30%;" class="slds-align_absolute-center"
                     name="Acrylic"
                     label="Select acrylic plate:"
                     value={value}
@@ -14,7 +14,7 @@
         </div>
         <div class="slds-col">
             
-            <lightning-input class="slds-m-bottom_small slds-align_absolute-center" type="number" onchange={validation} label="Write the number of acrylic plates included in the delivery:" placeholder="Enter..." style="width: 47%;" name="quantity"></lightning-input> 
+            <lightning-input class="slds-m-bottom_small slds-align_absolute-center" data-field="quantityToAdd" type="number" onchange={validation} label="Write the number of acrylic plates included in the delivery:" placeholder="Enter..." style="width: 47%;" name="quantity"></lightning-input> 
             <lightning-button class="slds-align_absolute-center" label="Add" onclick={handleClick} disabled></lightning-button> 
         
             
