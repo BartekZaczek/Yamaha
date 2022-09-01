@@ -1,5 +1,5 @@
 public class AcrylicController {
-    @AuraEnabled
+    @AuraEnabled(cacheable=true)
     public static List<Acrylic__c> getAcrylic(){
         List<Acrylic__c> acrylics = [SELECT Id, Name, Quantity__c FROM Acrylic__c];
         return acrylics;

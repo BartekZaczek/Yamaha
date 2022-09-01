@@ -9,30 +9,32 @@
                             label="Do you want add or delete acrylic plate?"
                             value={value}
                             placeholder="Select..."
-                            options={options}>
+                            options={optionsAddDelete}>
                         </lightning-combobox>
                     </div>
                 </lightning-layout-item>
                 <lightning-layout-item size="12" medium-device-size="4" padding="around-small" >
                     <div>
                         <lightning-combobox data-field="comboDelete" style="width: 85%;" class="slds-align_absolute-center"
-                            name="addOrDelete"
-                            label="Pick acrylic:"
+                            name="color"
+                            label="Pick acrylic plate:"
                             value={value}
                             placeholder="Select..."
-                            options={optionsAcrylic}>
+                            options={optionsArray}
+                            onchange={handleChange}>
                         </lightning-combobox>
+                        <p>Quantity:{quantityToShow}</p>
                     </div>
                 </lightning-layout-item>
                 <lightning-layout-item size="12" medium-device-size="4" padding="around-small">
                     <div>
-                        <lightning-input  data-field="quantityToDelete" name="quantityToDelete" onchange={validation} type="number" label="Quantity:" placeholder="Enter..."></lightning-input> 
+                        <lightning-input class="slds-align_absolute-center"  data-field="quantity" style="width: 85%;"   type="number" label="Quantity:" placeholder="Enter..."></lightning-input> 
                     </div> 
                 </lightning-layout-item>
             </lightning-layout>
             <lightning-layout multiple-rows="true">
                 <lightning-layout-item size="12" padding="around-small" >
-                    <lightning-button class="slds-align_absolute-center" label="Delete" onclick={handleClick} ></lightning-button>
+                    <lightning-button class="slds-align_absolute-center" label="Delete" onclick={handleChange}  ></lightning-button>
                 </lightning-layout-item>
             </lightning-layout>
         </div>
