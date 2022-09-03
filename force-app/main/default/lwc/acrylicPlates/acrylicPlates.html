@@ -1,4 +1,9 @@
 <template>
+    <div if:true={isLoading}>
+        <lightning-spinner
+            alternative-text="Loading..." variant="brand" class="slds-is-fixed">
+        </lightning-spinner>
+    </div>
     <lightning-card title="Acrylic Plates Warehouse">
         <div class="">
             <lightning-layout multiple-rows="true" >
@@ -9,7 +14,8 @@
                             label="Do you want add or delete acrylic plate?"
                             value={value}
                             placeholder="Select..."
-                            options={optionsAddDelete}>
+                            options={optionsAddDelete}
+                            onchange={handleChangeAddOrDelete}>
                         </lightning-combobox>
                     </div>
                 </lightning-layout-item>
@@ -23,18 +29,18 @@
                             options={optionsArray}
                             onchange={handleChange}>
                         </lightning-combobox>
-                        <p>Quantity:{quantityToShow}</p>
+                        <p class="slds-align_absolute-center">Actual quantity of {labelP} : {quantityToShow}</p>
                     </div>
                 </lightning-layout-item>
                 <lightning-layout-item size="12" medium-device-size="4" padding="around-small">
                     <div>
-                        <lightning-input class="slds-align_absolute-center"  data-field="quantity" style="width: 85%;"   type="number" label="Quantity:" placeholder="Enter..."></lightning-input> 
+                        <lightning-input class="slds-align_absolute-center"  data-field="quantity" style="width: 85%;"   type="number" label="Quantity:" placeholder="Enter..." onchange={handleChangeInput} disabled={disabledQuantityInput}></lightning-input> 
                     </div> 
                 </lightning-layout-item>
             </lightning-layout>
             <lightning-layout multiple-rows="true">
                 <lightning-layout-item size="12" padding="around-small" >
-                    <lightning-button class="slds-align_absolute-center" label="Delete" onclick={handleChange}  ></lightning-button>
+                    <lightning-button class="slds-align_absolute-center" label={buttonLabel} onclick={handleClick} disabled={disabledButton} ></lightning-button>
                 </lightning-layout-item>
             </lightning-layout>
         </div>
