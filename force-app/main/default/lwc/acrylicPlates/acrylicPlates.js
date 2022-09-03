@@ -20,7 +20,6 @@ export default class AcrylicPlates extends LightningElement {
     @track addOrDelete = '';
     @track disabledButton = true;
     @track disabledQuantityInput = true;
-    event;
     @track isLoading = false;
     @track buttonLabel = 'Confirm';
     @track labelP = 'picked acrylic plate';
@@ -134,7 +133,4 @@ export default class AcrylicPlates extends LightningElement {
              eval("$A.get('e.force:refreshView').fire();");
         }, 200); 
      }
-
-    
-    
 }
