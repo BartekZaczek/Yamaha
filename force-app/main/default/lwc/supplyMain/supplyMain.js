@@ -75,9 +75,7 @@ export default class SupplyMain extends LightningElement {
         this.handleAlert();
         this.quantityToShow = parseInt(this.addedQuantity) + parseInt(this.quantity);
       });
-      setTimeout(function(){
-        window.location.reload()
-      },1500);
+      
         
     }
     

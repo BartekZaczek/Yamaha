@@ -75,11 +75,9 @@ export default class AcrylicTaken extends LightningElement {
         const recordInput = {fields: fields};
         updateRecord(recordInput).then((record) => {
             console.log(record);
-            this.handleAlert();
+            
         })
-        setTimeout(function(){
-            window.location.reload()
-          },1500);
+        
     }
     
 }
