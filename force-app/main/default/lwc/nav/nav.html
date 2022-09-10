@@ -1,9 +1,24 @@
 <template>
     <lightning-card>
         <lightning-layout multiple-rows="true">
-            <lightning-layout-item size="4"></lightning-layout-item>
-            <lightning-layout-item size="12" small-device-size="4"></lightning-layout-item>
-            <lightning-layout-item size="4"></lightning-layout-item>
+            
+           
+            <lightning-layout-item size="12">
+                <div class="slds-grid slds-grid-gutters slds-align_absolute-center">
+                    <div class="slds-col slds-align_absolute-center">
+                        <lightning-button label="Home"></lightning-button>
+                    </div>
+                    <div class="slds-col slds-align_absolute-center">
+                        <lightning-button label="Contact"></lightning-button>
+                    </div>
+                    <div class="slds-col slds-align_absolute-center">
+                        <lightning-button label={basket}></lightning-button>
+                    </div>
+                </div>
+                   
+            </lightning-layout-item>
+
+
         </lightning-layout>
     </lightning-card>
 </template>
