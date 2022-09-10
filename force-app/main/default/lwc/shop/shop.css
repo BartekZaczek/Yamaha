@@ -1,4 +1,10 @@
-
+:host {
+    --slds-c-button-brand-color-background: orange;
+    --slds-c-button-brand-color-border: orange;
+    /* Other CSS custom properties here */
+  
+  }
+  
 @media screen and (min-width: 841px){   
     h1{
         font-size: 55px;
@@ -25,4 +31,5 @@
         margin-left:10%;
     }  
 }
+
 
