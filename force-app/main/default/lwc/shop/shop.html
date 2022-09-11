@@ -1,19 +1,43 @@
 <template>
     <lightning-card>
+        <c-nav></c-nav>
         <lightning-layout multiple-rows="true">
-            <lightning-layout-item size="12" medium-device-size="8" padding="around-medium">
-                <div class="slds-m-vertical_large title">
-                    <h1>Acrylic Front</h1>
-                </div>
+            <lightning-layout-item size="12" medium-device-size="6" padding="around-medium">
+                
                 <div class="slds-align_absolute-center"> 
-                    <img src={whiteHg}>
+                    <img style="border: 3px solid #00A1E0; border-radius: 10px;" src={colorPicked}>
                 </div>
             </lightning-layout-item>
-            <lightning-layout-item size="12" medium-device-size="4"  padding="around-medium">
-                <div class="slds-align_absolute-center">
-                    dasdasdsadadasda dasdasdsadadasda
-                    dasdasdsadadasda
-                    dasdasdsadadasdadasdasdsadadasda
+            <lightning-layout-item size="12" medium-device-size="6" >
+                <div>
+                    <div class="title slds-align_absolute-center">
+                        <h1>Acrylic Front</h1>
+                    </div>
+                    <lightning-layout multiple-rows="true" horizontal-align="spread">
+                        <lightning-layout-item size="12" medium-device-size="6" padding="around-medium">
+                            <div class="specification">
+                                <div class="" style="border-top: 1px solid rgb(221, 221, 221);">
+                                    <lightning-combobox data-field="comboDelete" style="width: 85%;" class="slds-align_absolute-center slds-m-vertical_small"
+                                        name="color"
+                                        label="Select color:"
+                                        value={value}
+                                        placeholder="Select..."
+                                        options={colors}
+                                        onchange={handleChangeColors}>
+                                    </lightning-combobox>
+                                    <lightning-input class="slds-align_absolute-center slds-m-vertical_small" style="width: 85%;" type="number" label="Height:" placeholder="Enter..."></lightning-input>
+                                    <lightning-input class="slds-align_absolute-center slds-m-vertical_small" style="width: 85%;" type="number" label="Width:" placeholder="Enter..."></lightning-input>
+                                </div>
+                            </div>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="12" medium-device-size="6" padding="around-medium">
+                            <div class="specification">
+                                <div class="" style="border-top: 1px solid rgb(221, 221, 221);">
+                                    aaaaaaa
+                                </div>
+                            </div>
+                        </lightning-layout-item>
+                    </lightning-layout>
                 </div>
             </lightning-layout-item>
         </lightning-layout>
