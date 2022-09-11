@@ -9,31 +9,31 @@ export default class Shop extends LightningElement {
     whiteHg = WHITE_HG;
     whiteMat = WHITE_MAT;
     blackMat = BLACK_MAT;
-
+    imgColor = this.whiteHg
     @track colors = [];
-    selectedColorValue = '';
     imgColor = '';
     staticList = [];
+    valueCombo = '';
 
     connectedCallback(){
         getAcrylic()
         .then( result => {
             let arr = [];
-            let staticArr = [];
-            
+
             for(var i = 0; i < result.length; i++){
+                
                 arr.push({label : result[i].Name, value : result[i].Id})
                 console.log(arr[i]);
             }
+            this.valueCombo = arr[0];
             this.colors = arr;
         })
     }
 
     handleChangeColors(event){
-        this.selectedColorValue = event.detail.value;
         for(var i = 0; i < this.colors.length; i++){
-            if(this.selectedColorValue == this.colors[i].value){
-                this.imgColor = this.colors
+            if( event.detail.value == this.colors[i].value){
+                this.imgColor = this.whiteHg;
             }
         }
        
