@@ -5,7 +5,8 @@
             <lightning-layout-item size="12" medium-device-size="6" padding="around-medium">
                 
                 <div class="slds-align_absolute-center"> 
-                    <img style="border: 3px solid #00A1E0; border-radius: 10px;" src={colorPicked}>
+                    <img style="border: 3px solid #00A1E0; border-radius: 10px;" src={imgColor}>
+                    {colorToShow}
                 </div>
             </lightning-layout-item>
             <lightning-layout-item size="12" medium-device-size="6" >
@@ -20,7 +21,7 @@
                                     <lightning-combobox data-field="comboDelete" style="width: 85%;" class="slds-align_absolute-center slds-m-vertical_small"
                                         name="color"
                                         label="Select color:"
-                                        value={value}
+                                        value={valueCombo}
                                         placeholder="Select..."
                                         options={colors}
                                         onchange={handleChangeColors}>

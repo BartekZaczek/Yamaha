@@ -14,6 +14,7 @@ export default class Shop extends LightningElement {
     imgColor = '';
     staticList = [];
     valueCombo = '';
+    colorToShow;
 
     connectedCallback(){
         getAcrylic()
@@ -22,11 +23,13 @@ export default class Shop extends LightningElement {
 
             for(var i = 0; i < result.length; i++){
                 
-                arr.push({label : result[i].Name, value : result[i].Id})
+                arr.push({label : result[i].Name, value : result[i].Id, color : result[i].acrylicColor__c})
                 console.log(arr[i]);
             }
             this.valueCombo = arr[0];
             this.colors = arr;
+            this.colorToShow = arr[0].color;
+            console.log(this.colorToShow);
         })
     }
 
