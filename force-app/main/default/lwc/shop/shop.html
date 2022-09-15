@@ -1,12 +1,10 @@
 <template>
     <lightning-card>
-        <c-nav></c-nav>
         <lightning-layout multiple-rows="true">
             <lightning-layout-item size="12" medium-device-size="6" padding="around-medium">
                 
                 <div class="slds-align_absolute-center"> 
-                    <img style="border: 3px solid #00A1E0; border-radius: 10px;" src={imgColor}>
-                    {colorToShow}
+                    <img style="border: 2px solid rgb(212, 212, 212); border-radius: 10px; width:591px; height: auto;" src={imgColor}/>
                 </div>
             </lightning-layout-item>
             <lightning-layout-item size="12" medium-device-size="6" >
@@ -22,7 +20,7 @@
                                         name="color"
                                         label="Select color:"
                                         value={valueCombo}
-                                        placeholder="Select..."
+                                        placeholder={valueCombo}
                                         options={colors}
                                         onchange={handleChangeColors}>
                                     </lightning-combobox>
