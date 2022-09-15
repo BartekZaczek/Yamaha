@@ -15,7 +15,7 @@
                     <lightning-layout multiple-rows="true" horizontal-align="spread">
                         <lightning-layout-item size="12" medium-device-size="6" padding="around-medium">
                             <div class="specification">
-                                <div class="" style="border-top: 1px solid rgb(221, 221, 221);">
+                                <div style="border-top: 1px solid rgb(221, 221, 221);">
                                     <lightning-combobox data-field="comboDelete" style="width: 85%;" class="slds-align_absolute-center slds-m-vertical_small"
                                         name="color"
                                         label="Select color:"
@@ -24,9 +24,10 @@
                                         options={colors}
                                         onchange={handleChangeColors}>
                                     </lightning-combobox>
-                                    <lightning-input class="slds-align_absolute-center slds-m-vertical_small" style="width: 85%;" type="number" label="Height:" placeholder="Enter..."></lightning-input>
-                                    <lightning-input class="slds-align_absolute-center slds-m-vertical_small" style="width: 85%;" type="number" label="Width:" placeholder="Enter..."></lightning-input>
+                                    <lightning-input class="slds-align_absolute-center slds-m-vertical_small" min="0" style="width: 85%;" type="number" label="Height in millimeters:" placeholder="Enter..."  onchange={handleChangeHeight}></lightning-input>
+                                    <lightning-input class="slds-align_absolute-center slds-m-vertical_small" min="0" style="width: 85%;" type="number" label="Width in millimeters:" placeholder="Enter..." onchange={handleChangeWidth}></lightning-input>
                                 </div>
+                                <lightning-button class="slds-align_absolute-center  slds-var-m-top_x-large btn" variant="brand" label="Add to cart" onclick={handleClick}></lightning-button>
                             </div>
                         </lightning-layout-item>
                         <lightning-layout-item size="12" medium-device-size="6" padding="around-medium">

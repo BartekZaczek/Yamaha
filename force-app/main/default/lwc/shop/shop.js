@@ -11,6 +11,9 @@ export default class Shop extends LightningElement {
     @track mapWithImg = [];
     tempCol  =  '';
     valueCombo = '';
+    width = 0;
+    height = 0;
+    @track orderArray  = [];
     
     connectedCallback(){
         getAcrylic()
@@ -25,7 +28,6 @@ export default class Shop extends LightningElement {
                     case 'White HG':
                         this.tempCol = WHITE_HG;
                         this.valueCombo = result[i].Name;
-                        console.log(this.valueCombo)
                         break;
                     case 'Anthracite Grey':
                         this.tempCol = ANTHRACITE_GREY;
@@ -44,10 +46,36 @@ export default class Shop extends LightningElement {
         for(var i = 0; i < this.colors.length; i++){
             if( event.detail.value == this.colors[i].value){
                 this.imgColor = this.mapWithImg.get(this.colors[i].label);
-                console.log(this.mapWithImg.get(this.colors[i].label))
+                this.valueCombo = this.colors[i].label;
+                console.log(this.colors[i].label)
             }
-            
-           
         }
+    }
+
+    handleChangeHeight(event){
+        if(event.detail.value > 0) {
+            this.height = event.detail.value;
+        }else{
+            this.height = 0;
+        }
+        
+        console.log(this.height)
+    }
+
+    handleChangeWidth(event){
+        if(event.detail.value > 0) {
+            this.width = event.detail.value;
+        }else{
+            this.width = 0;
+        }
+    }
+
+    handleClick(){
+        
+        this.orderArray.push({width : this.width, color : this.valueCombo})
+        for(var i = 0; i < this.orderArray.length; i++ ){
+console.log(this.orderArray[i])
+        }
+        console.log(this.width + ' ' +  this.height + this.valueCombo)
     }
 }
