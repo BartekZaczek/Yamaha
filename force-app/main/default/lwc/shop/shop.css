@@ -5,7 +5,16 @@
 .btn{
     background-color: rgb(10, 50, 198);
     border-radius: 25px;
-    width: 60%;
+    width: 50%;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+
+.btn:hover {
+    background-color:rgb(8, 38, 149); 
+    border-color: rgb(8, 38, 149);
 }
 
 @media screen and (min-width: 841px){   
