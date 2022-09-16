@@ -1,8 +1,14 @@
-import { LightningElement, track } from 'lwc';
+import { LightningElement, track, wire } from 'lwc';
 import ANTHRACITE_GREY from '@salesforce/resourceUrl/anthraciteGrey';
 import WHITE_HG from '@salesforce/resourceUrl/whiteHg';
 import BLACK_MAT from '@salesforce/resourceUrl/blackMat';
 import getAcrylic from '@salesforce/apex/AcrylicController.getAcrylic';
+import { publish, MessageContext } from 'lightning/messageService';
+import MyMessageChannel from '@salesforce/messageChannel/MyMessageChannel__c';
+import uId from '@salesforce/user/Id';
+import ORDER_SHOP from '@salesforce/schema/OrderShop__c';
+import ORDER_NAME from '@salesforce/schema/OrderShop__c.Name';
+import { createRecord } from 'lightning/uiRecordApi';
 
 
 export default class Shop extends LightningElement {
@@ -14,6 +20,9 @@ export default class Shop extends LightningElement {
     width = 0;
     height = 0;
     @track orderArray  = [];
+    userId = uId;
+    orderObj = ORDER_SHOP;
+    orderName = 'test test test';
     
     connectedCallback(){
         getAcrylic()
@@ -39,8 +48,12 @@ export default class Shop extends LightningElement {
             }
             this.colors = arr;
             this.mapWithImg = map;  
+            console.log(this.userId)
         })
     }
+
+    @wire(MessageContext)
+    messageContext;
 
      handleChangeColors(event){
         for(var i = 0; i < this.colors.length; i++){
@@ -74,8 +87,24 @@ export default class Shop extends LightningElement {
         
         this.orderArray.push({width : this.width, color : this.valueCombo})
         for(var i = 0; i < this.orderArray.length; i++ ){
-console.log(this.orderArray[i])
+            console.log(this.orderArray[i])
         }
         console.log(this.width + ' ' +  this.height + this.valueCombo)
+
+        const message = {messageToSend: 'test'};
+        
+            publish(this.messageContext, MyMessageChannel, message);
+            this.createOrder();
+        
+    }
+
+    createOrder(){
+        var fields = {'Name' : this.orderName};
+        var objRecordInput = {'apiName' : 'OrderShop__c', fields}
+        createRecord(objRecordInput).then(response => {
+            console.log('record created');
+        }).catch(error => {
+            console.error(JSON.stringify(error));
+        })
     }
 }
