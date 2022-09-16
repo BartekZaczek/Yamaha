@@ -14,7 +14,7 @@
 
 .btn:hover {
     background-color:rgb(8, 38, 149); 
-    border-color: rgb(8, 38, 149);
+    border-color: rgb(8, 38, 149); 
 }
 
 @media screen and (min-width: 841px){   
