@@ -9,6 +9,8 @@ import uId from '@salesforce/user/Id';
 import ORDER_SHOP from '@salesforce/schema/OrderShop__c';
 import ORDER_NAME from '@salesforce/schema/OrderShop__c.Name';
 import { createRecord } from 'lightning/uiRecordApi';
+import getLatestOrder from '@salesforce/apex/OrderController.getLatestOrder';
+import getProduct from '@salesforce/apex/ProductController.getProduct';
 
 
 export default class Shop extends LightningElement {
@@ -22,7 +24,9 @@ export default class Shop extends LightningElement {
     @track orderArray  = [];
     userId = uId;
     orderObj = ORDER_SHOP;
-    orderName = 'test test test';
+    orderName = 'latest order';
+    latestOrderId;
+    product;
     
     connectedCallback(){
         getAcrylic()
@@ -48,7 +52,7 @@ export default class Shop extends LightningElement {
             }
             this.colors = arr;
             this.mapWithImg = map;  
-            console.log(this.userId)
+            
         })
     }
 
@@ -60,7 +64,7 @@ export default class Shop extends LightningElement {
             if( event.detail.value == this.colors[i].value){
                 this.imgColor = this.mapWithImg.get(this.colors[i].label);
                 this.valueCombo = this.colors[i].label;
-                console.log(this.colors[i].label)
+                
             }
         }
     }
@@ -72,7 +76,7 @@ export default class Shop extends LightningElement {
             this.height = 0;
         }
         
-        console.log(this.height)
+        
     }
 
     handleChangeWidth(event){
@@ -87,22 +91,54 @@ export default class Shop extends LightningElement {
         
         this.orderArray.push({width : this.width, color : this.valueCombo})
         for(var i = 0; i < this.orderArray.length; i++ ){
-            console.log(this.orderArray[i])
+            
         }
-        console.log(this.width + ' ' +  this.height + this.valueCombo)
-
+        
         const message = {messageToSend: 'test'};
-        
-            publish(this.messageContext, MyMessageChannel, message);
+        publish(this.messageContext, MyMessageChannel, message);
+    
+
+
             this.createOrder();
-        
+           
+            getLatestOrder().then(result =>{
+                this.latestOrderId = result.Id;
+                this.createProduct();
+            })
+            
+            
+          
+            
     }
 
     createOrder(){
         var fields = {'Name' : this.orderName};
         var objRecordInput = {'apiName' : 'OrderShop__c', fields}
         createRecord(objRecordInput).then(response => {
-            console.log('record created');
+            console.log('ORDER created');
+        }).catch(error => {
+            console.error(JSON.stringify(error));
+        })
+
+        //IF..............///////
+        
+        //IF..............///////
+        
+        //IF..............///////
+
+    
+    }
+
+    createProduct(){
+        console.log(this.latestOrderId)
+        var fields = {  'Width__c' : this.width,
+                        'Height__c' : this.height,
+                        'OrderShop__c' : this.latestOrderId,
+                        //acrylic__c
+                        'Name' : 'latestorder PRODUCT' }
+        var objRecordInput = {'apiName' : 'ProductShop__c', fields}
+        createRecord(objRecordInput).then(response => {
+            console.log('PRODUCT created');
         }).catch(error => {
             console.error(JSON.stringify(error));
         })
